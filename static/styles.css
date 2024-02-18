@@ -486,21 +486,171 @@ body {
 
 /* INTRO COMPONENT */
 
+.intro {
+  height: 100%;
+  margin: 0 auto;
+  max-width: 500px;
+}
+
 .intro_cont {
   border: 2px solid #636b77;
   border-radius: 10px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   gap: 10px;
   padding: 20px;
+  margin-top: 30px;
 }
+.intro_header {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.intro_title {
+}
+.intro_subtitle {
+  margin-top: 10px;
+}
+
 .login_btn {
   background: #b1b0b0;
-  padding: 20px 20px;
+  padding: 15px 40px;
   text-align: center;
   border-radius: 10px;
   color: white;
+  cursor: pointer;
+}
+
+.login_btn:hover {
+  background-image: linear-gradient(to right, rgb(0, 51, 255), rgb(34, 255, 0));
+}
+
+.login_btn.active {
+  background-image: linear-gradient(to right, rgb(0, 51, 255), rgb(34, 255, 0));
 }
 .signup_btn {
   background: #b1b0b0;
+
+  padding: 15px 40px;
+  text-align: center;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.signup_btn.active {
+  background-image: linear-gradient(to right, rgb(0, 51, 255), rgb(34, 255, 0));
+}
+
+.signup_btn:hover {
+  background-image: linear-gradient(to right, rgb(0, 51, 255), rgb(34, 255, 0));
+}
+
+/* LOGIN FORM */
+
+.login_form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 30px;
+}
+.username_input {
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: large;
+  border: 2px solid #e3e8ef;
+}
+.username_input:focus {
+  outline: none !important;
+  border: 2px solid rgb(93, 95, 235);
+}
+.password_input {
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: large;
+  border: 2px solid #e3e8ef;
+}
+
+.password_input:focus {
+  outline: none !important;
+  border: 2px solid rgb(93, 95, 235);
+}
+.submit_button {
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-size: large;
+  background: #228cf3;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  border: none;
+  margin-top: 5px;
+}
+
+.submit_button:hover {
+  background: #006cd7;
+}
+
+/* TASKS */
+
+.tasks {
+  margin-top: 25px;
+}
+
+.go_back_icon {
+  background-color: #e3e8ef;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.go_back_icon:hover {
+  background-color: #a8a8a8;
+}
+
+.tasks_cont {
+  max-height: 500px;
+  overflow-y: auto;
+}
+.task {
+  display: flex;
+  background-color: #e3e8ef;
+  padding: 15px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.task_btns {
+  display: flex;
+  gap: 10px;
+}
+.task_btns img:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.task_name {
+  max-width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 700;
+}
+
+.task_icon {
+  margin-right: 5px;
+}
+
+.title_header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin: 20px 0px;
 }
