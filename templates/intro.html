@@ -1,6 +1,16 @@
-{%extends 'layout.html'%} {%block main%}
-<div class="intro_cont">
-  <div class="login_btn">Login</div>
-  <div class="signup_btn">Sign Up</div>
-</div>
-{%endblock%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/static/styles.css" rel="stylesheet" />
+    <title>Welcome</title>
+  </head>
+  <body class="intro">
+    <header class="intro_header">
+      <h1 class="intro_title">WELCOME TO TASKS BOARD APPLICATION</h1>
+      <p class="intro_subtitle">Log In Or Sign up</p>
+    </header>
+    <div>{%block form%}{%endblock%}</div>
+  </body>
+</html>
