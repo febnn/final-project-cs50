@@ -1,16 +1,29 @@
-{%extends 'intro.html'%} {%block form%}
+{%extends 'intro.html'%} {%block form%} {% with messages =
+get_flashed_messages() %} {% if messages %}
+<ul class="flashes">
+  {% for message in messages %}
+  <li>{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %} {% endwith %} {% block body %}{% endblock %}
 
 <div class="intro_cont">
   <a href="/login"><div class="login_btn active">Login</div></a>
   <a href="/register"><div class="signup_btn">Sign Up</div></a>
-  <form class="login_form">
+  <form action="/login" method="post" class="login_form">
     <input
       autofocus
       type="text"
       placeholder="username"
       class="username_input"
+      name="username"
     />
-    <input type="password" placeholder="password" class="password_input" />
+    <input
+      type="password"
+      name="password"
+      placeholder="password"
+      class="password_input"
+    />
     <button class="submit_button">Login</button>
   </form>
 </div>

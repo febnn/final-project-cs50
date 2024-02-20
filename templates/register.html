@@ -1,20 +1,28 @@
-{%extends 'intro.html'%} {%block form%}
+{%extends 'intro.html'%} {%block form%} {% if error %}
+<p class="error"><strong>Error:</strong> {{ error }} {% endif %}</p>
 
 <div class="intro_cont">
   <a href="/login"><div class="login_btn">Login</div></a>
   <div class="signup_btn active">Sign Up</div>
-  <form class="login_form">
+  <form action="/register" method="post" class="login_form">
     <input
       autofocus
       type="text"
       placeholder="username"
       class="username_input"
+      name="username"
     />
-    <input type="password" placeholder="password" class="password_input" />
+    <input
+      type="password"
+      placeholder="password"
+      class="password_input"
+      name="password"
+    />
     <input
       type="password"
       placeholder="repeat password"
       class="password_input"
+      name="confirmation"
     />
     <button class="submit_button">Sign Up</button>
   </form>
