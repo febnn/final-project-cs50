@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="/static/styles.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>TODO{% block title %}{% endblock %}</title>
   </head>
   <body>
@@ -13,11 +14,12 @@
         <img src="/static/Logo.svg" alt="logo-icon" />
         <p>My Task Board</p>
         <img src="/static/Edit_duotone.svg" alt="pen-icon" />
-        <img
-          src="/static/logout-sketch-svgrepo-com.svg"
-          alt="logout"
-          class="logout_icon"
-        />
+        <a href="/logout"
+          ><img
+            src="/static/logout-sketch-svgrepo-com.svg"
+            alt="logout"
+            class="logout_icon"
+        /></a>
       </div>
       <p class="sub_title">Tasks to keep organised</p>
     </header>

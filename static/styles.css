@@ -18,7 +18,7 @@ body {
 /* HEADER */
 
 .header {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .header_title {
@@ -371,23 +371,35 @@ body {
 .status_flex_cont {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 7px;
 }
+
+/* RADIO INPUT */
+.radio_input {
+  position: absolute;
+  right: 5px;
+}
+.radio_input1 {
+  position: absolute;
+  right: 5px;
+}
+
 /* IN PROGRESS ELEMENT */
-.status_in_progress {
+.status_container {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 5px;
   border: 2px solid #e3e8ef;
+  padding: 5px;
   border-radius: 5px;
-  padding: 3px;
   min-width: 140px;
-  max-width: 200px;
+  max-width: 250px;
   flex-grow: 1;
   cursor: pointer;
 }
-.status_in_progress:hover {
-  border: 2px solid rgb(93, 95, 235);
+.status_container:hover {
+  border: 2px solid #5d5feb;
 }
 /* IN PROGRESS ICON */
 .status_in_progress_logo_cont {
@@ -478,9 +490,8 @@ body {
   border-radius: 5px;
   padding: 3px;
   min-width: 140px;
-  max-width: 200px;
+  max-width: 250px;
   flex-grow: 1;
-  cursor: pointer;
   visibility: hidden;
 }
 
