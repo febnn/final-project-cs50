@@ -1,0 +1,114 @@
+{%extends 'layout.html'%} {% block body_class %}task_page{% endblock %} {% block
+task %}
+<p class="task_title">CREATE TASK</p>
+{%endblock %} {% block title %} Add Task {%endblock %} {%block main%}
+<form id="create_form" action="/create" method="post">
+  <div class="task_container" style="opacity: 1">
+    <!-- Task details -->
+    <div class="task_details_cont">
+      <p class="task_details_title">Task details</p>
+      <a href="/"
+        ><div class="task_details_btn_cont">
+          <img
+            src="/static/close_ring_duotone-1.svg"
+            alt="close-btn"
+            class="task_details_btn_img"
+          /></div
+      ></a>
+    </div>
+    <!-- Task name -->
+    <div class="task_name_cont">
+      <p class="task_name_title">Task name</p>
+
+      <input
+        class="task_name_input {{error_title}}"
+        type="text"
+        placeholder="Enter task name"
+        name="title"
+      />
+    </div>
+    <!-- Description -->
+    <div class="description_cont">
+      <p class="description_title">Description</p>
+      <textarea
+        class="description_textarea"
+        name="description"
+        id=""
+        cols="30"
+        rows="10"
+        placeholder="Enter a short description"
+      ></textarea>
+    </div>
+    <!-- icon value improvised variable for the form -->
+    <input
+      type="text"
+      name="icon"
+      value="/static/schedule-svgrepo-com.svg"
+      style="display: none"
+      id="icon_value"
+    />
+    <!-- Icons -->
+    <div class="icons_cont">
+      <p class="icons_title">Icon</p>
+
+      <div class="icons_flex_cont">
+        <div id="/static/clock-svgrepo-com.svg" class="icons">
+          <img src="/static/clock-svgrepo-com.svg" alt="icon" />
+        </div>
+        <div id="/static/knowledge-svgrepo-com.svg" class="icons">
+          <img src="/static/knowledge-svgrepo-com.svg" alt="icon" />
+        </div>
+        <div id="/static/e-learning-svgrepo-com.svg" class="icons">
+          <img src="/static/e-learning-svgrepo-com.svg" alt="icon" />
+        </div>
+        <div id="/static/research-svgrepo-com.svg" class="icons">
+          <img src="/static/research-svgrepo-com.svg" alt="icon" />
+        </div>
+        <div id="/static/student-svgrepo-com.svg" class="icons">
+          <img src="/static/student-svgrepo-com.svg" alt="icon" />
+        </div>
+        <div id="/static/schedule-svgrepo-com.svg" class="icons">
+          <img src="/static/schedule-svgrepo-com.svg" alt="icon" />
+        </div>
+      </div>
+    </div>
+    <!-- Status -->
+
+    <!-- Buttons -->
+    <div class="buttons_cont">
+      <div class="create_btn" id="submit-btn">
+        <p style="margin-top: 1px">Add Task</p>
+        <img src="/static/Add_round_duotone.svg" alt="create" />
+      </div>
+    </div>
+  </div>
+</form>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document
+      .getElementById("submit-btn")
+      .addEventListener("click", function () {
+        document.getElementById("create_form").submit();
+      });
+
+    let icons = document.querySelectorAll(".icons");
+
+    let icon_value = document.querySelector("#icon_value");
+
+    icons.forEach((icon) => {
+      icon.addEventListener("click", () => {
+        let icon_src = icon.id;
+        icon_value.value = icon.id;
+        icon.style.background = "#f5d565";
+        icons.forEach((sec) => {
+          if (sec.id != icon_src) {
+            sec.style.background = "#e3e8ef";
+          }
+        });
+      });
+    });
+  });
+</script>
+
+{%endblock%}

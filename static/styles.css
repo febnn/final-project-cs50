@@ -309,6 +309,10 @@ body {
   border: 1px solid gray;
 }
 
+.task_name_input.error_border {
+  border: 1px solid red;
+}
+
 .task_name_input:focus {
   outline: none !important;
   border: 2px solid rgb(93, 95, 235);
@@ -434,6 +438,25 @@ body {
   margin-top: 1px;
 }
 
+/* IN PROGRESS ICON */
+.status_in_progress_logo_cont {
+  background: #dd9226;
+  padding: 7px 10px;
+  border-radius: 10px;
+}
+.status_in_progress_logo {
+  margin-top: 1px;
+}
+
+/* WONT DO ICON */
+.status_wont_do_logo_cont {
+  background: #dd524c;
+  padding: 7px 10px;
+  border-radius: 10px;
+}
+.status_wont_do_logo {
+  margin-top: 1px;
+}
 /* WONT'T DO ELEMENT */
 .status_wont_do {
   display: flex;
@@ -478,6 +501,12 @@ body {
   border-radius: 10px;
   padding: 7px 15px;
   cursor: pointer;
+}
+
+.error_status {
+  color: red;
+  font-size: smaller;
+  margin-top: 5px;
 }
 
 /* DECOY */
@@ -627,6 +656,40 @@ body {
   max-height: 500px;
   overflow-y: auto;
 }
+
+.task_in_progress {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  background-color: #a0ecb1;
+  padding: 15px;
+  align-items: center;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.task_completed {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  background-color: #f5d565;
+  padding: 15px;
+  align-items: center;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.task_wont_do {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  background-color: #f7d4d3;
+  padding: 15px;
+  align-items: center;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
 .task {
   display: flex;
   background-color: #e3e8ef;
@@ -638,6 +701,8 @@ body {
 }
 
 .task_btns {
+  position: absolute;
+  right: 10px;
   display: flex;
   gap: 10px;
 }
@@ -647,11 +712,18 @@ body {
 }
 
 .task_name {
-  max-width: 250px;
+  max-width: 300px;
+
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   font-weight: 700;
+}
+
+@media only screen and (max-width: 400px) {
+  .task_name {
+    padding-right: 60px;
+  }
 }
 
 .task_icon {
@@ -664,4 +736,11 @@ body {
   align-items: center;
   gap: 5px;
   margin: 20px 0px;
+}
+
+/* No task */
+
+.empty_task {
+  text-align: center;
+  margin-top: 20px;
 }

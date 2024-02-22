@@ -4,30 +4,30 @@
     ><img src="/static/back-arrow-svgrepo-com.svg" alt="" class="go_back_icon"
   /></a>
   <div class="title_header">
-    <div class="status_completed_logo_cont">
+    <div class="status_in_progress_logo_cont">
       <img
-        src="/static/Done_round_duotone.svg"
+        src="/static/Time_atack_duotone.svg"
         alt="progress-img"
         class="status_completed_logo"
       />
     </div>
-    <h1 class="tasks__title">Completed tasks</h1>
+    <h1 class="tasks__title">In Progress Tasks</h1>
   </div>
 
   <div class="tasks_cont">
-    {%if completed_tasks%} {%for task in completed_tasks%}
+    {%if in_progress_tasks%} {%for task in in_progress_tasks%}
     <div class="task_in_progress">
       <div><img src="{{task.icon}}" alt="" class="task_icon" /></div>
       <p class="task_name">{{task.title}}</p>
       <div class="task_btns">
-        <a href="/completed/{{task.id}}"
+        <a href="/in_progress/{{task.id}}"
           ><img src="/static/edit-svgrepo-com.svg" alt=""
         /></a>
         <img src="/static/delete-svgrepo-com.svg" alt="" />
       </div>
     </div>
     {%endfor%} {%else%}
-    <p>No tasks completed</p>
+    <p class="empty_task">No tasks in progress</p>
     {%endif%}
   </div>
 </div>
