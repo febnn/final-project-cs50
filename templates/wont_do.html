@@ -4,19 +4,19 @@
     ><img src="/static/back-arrow-svgrepo-com.svg" alt="" class="go_back_icon"
   /></a>
   <div class="title_header">
-    <div class="status_completed_logo_cont">
+    <div class="status_wont_do_logo_cont">
       <img
-        src="/static/Done_round_duotone.svg"
+        src="/static/close_ring_duotone.svg"
         alt="progress-img"
-        class="status_completed_logo"
+        class="status_wont_do_logo"
       />
     </div>
-    <h1 class="tasks__title">Completed tasks</h1>
+    <h1 class="tasks__title">Won't Do Tasks</h1>
   </div>
 
   <div class="tasks_cont">
-    {%if completed_tasks%} {%for task in completed_tasks%}
-    <div class="task_in_progress">
+    {% if wont_do_tasks%} {%for task in wont_do_tasks%}
+    <div class="task_wont_do">
       <div><img src="{{task.icon}}" alt="" class="task_icon" /></div>
       <p class="task_name">{{task.title}}</p>
       <div class="task_btns">
@@ -27,7 +27,7 @@
       </div>
     </div>
     {%endfor%} {%else%}
-    <p>No tasks completed</p>
+    <p>No tasks</p>
     {%endif%}
   </div>
 </div>

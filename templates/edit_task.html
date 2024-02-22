@@ -1,27 +1,31 @@
 {%extends 'layout.html'%} {% block body_class %}task_page{% endblock %} {% block
 task %}
-<p class="task_title">CREATE TASK</p>
-{%endblock %} {% block title %} Add Task {%endblock %} {%block main%}
-<form id="create_form" action="/create" method="post">
+<p class="task_title">EDIT TASK</p>
+{%endblock %} {% block title %} Edit Task {%endblock %} {%block main%}
+<form id="create_form" action="/in_progress/{{task.id}}" method="post">
   <div class="task_container" style="opacity: 1">
     <!-- Task details -->
     <div class="task_details_cont">
       <p class="task_details_title">Task details</p>
-      <div class="task_details_btn_cont">
-        <img
-          src="/static/close_ring_duotone-1.svg"
-          alt="close-btn"
-          class="task_details_btn_img"
-        />
-      </div>
+      <a href="/in_progress"
+        ><div class="task_details_btn_cont">
+          <img
+            src="/static/close_ring_duotone-1.svg"
+            alt="close-btn"
+            class="task_details_btn_img"
+          /></div
+      ></a>
     </div>
     <!-- Task name -->
     <div class="task_name_cont">
       <p class="task_name_title">Task name</p>
+
       <input
-        class="task_name_input"
+        class="task_name_input {{error_title}}"
         type="text"
         placeholder="Enter task name"
+        name="title"
+        value="{{task.title}}"
       />
     </div>
     <!-- Description -->
@@ -34,13 +38,15 @@ task %}
         cols="30"
         rows="10"
         placeholder="Enter a short description"
-      ></textarea>
+      >
+{{task.description}}</textarea
+      >
     </div>
     <!-- icon value improvised variable for the form -->
     <input
       type="text"
       name="icon"
-      value="/static/schedule-svgrepo-com.svg"
+      value="{{task.icon}}"
       style="display: none"
       id="icon_value"
     />
@@ -49,11 +55,24 @@ task %}
       <p class="icons_title">Icon</p>
 
       <div class="icons_flex_cont">
-        {%for icon_src in icons%}
-        <div id="{{icon_src}}" class="icons">
-          <img src="{{icon_src}}" alt="icon" />
+        <div id="/static/clock-svgrepo-com.svg" class="icons">
+          <img src="/static/clock-svgrepo-com.svg" alt="icon" />
         </div>
-        {%endfor%}
+        <div id="/static/knowledge-svgrepo-com.svg" class="icons">
+          <img src="/static/knowledge-svgrepo-com.svg" alt="icon" />
+        </div>
+        <div id="/static/e-learning-svgrepo-com.svg" class="icons">
+          <img src="/static/e-learning-svgrepo-com.svg" alt="icon" />
+        </div>
+        <div id="/static/research-svgrepo-com.svg" class="icons">
+          <img src="/static/research-svgrepo-com.svg" alt="icon" />
+        </div>
+        <div id="/static/student-svgrepo-com.svg" class="icons">
+          <img src="/static/student-svgrepo-com.svg" alt="icon" />
+        </div>
+        <div id="/static/schedule-svgrepo-com.svg" class="icons">
+          <img src="/static/schedule-svgrepo-com.svg" alt="icon" />
+        </div>
       </div>
     </div>
     <!-- Status -->
@@ -73,6 +92,7 @@ task %}
             </div>
             <p>In Progress</p>
             <input
+              checked
               type="radio"
               value="in_progress"
               name="status"
@@ -131,15 +151,18 @@ task %}
             />
           </div>
         </div>
+        <p class="error_status">{{error_status}}</p>
       </fieldset>
     </div>
 
     <!-- Buttons -->
     <div class="buttons_cont">
-      <div class="delete_btn">
-        <p>Delete</p>
-        <img src="/static/Trash.svg" alt="delete" />
-      </div>
+      <a href="/delete/{{task.id}}"
+        ><div class="delete_btn">
+          <p>Delete</p>
+          <img src="/static/Trash.svg" alt="delete" /></div
+      ></a>
+
       <div class="create_btn" id="submit-btn">
         <p>Save</p>
         <img src="/static/Done_round.svg" alt="delete" />
@@ -155,6 +178,8 @@ task %}
       .addEventListener("click", function () {
         document.getElementById("create_form").submit();
       });
+    const remove = document.querySelector(".delete_btn");
+
     const status_conts = document.querySelectorAll(".status_container");
     let radio_checks = document.querySelectorAll(".radio_input");
 
@@ -163,6 +188,9 @@ task %}
     let icon_value = document.querySelector("#icon_value");
 
     icons.forEach((icon) => {
+      if (icon_value.value == icon.id) {
+        icon.style.background = "#f5d565";
+      }
       icon.addEventListener("click", () => {
         let icon_src = icon.id;
         icon_value.value = icon.id;
@@ -176,6 +204,9 @@ task %}
     });
 
     status_conts.forEach((status, i) => {
+      if (radio_checks[i].checked == true) {
+        status.style.borderColor = "#5d5feb";
+      }
       status.addEventListener("click", function select() {
         let index = i;
         radio_checks[index].checked = true;
