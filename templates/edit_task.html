@@ -2,12 +2,12 @@
 task %}
 <p class="task_title">EDIT TASK</p>
 {%endblock %} {% block title %} Edit Task {%endblock %} {%block main%}
-<form id="create_form" action="/in_progress/{{task.id}}" method="post">
+<form id="create_form" action="/edit/{{task.id}}" method="post">
   <div class="task_container" style="opacity: 1">
     <!-- Task details -->
     <div class="task_details_cont">
       <p class="task_details_title">Task details</p>
-      <a href="/in_progress"
+      <a href="/{{task.status}}"
         ><div class="task_details_btn_cont">
           <img
             src="/static/close_ring_duotone-1.svg"
@@ -91,12 +91,8 @@ task %}
               />
             </div>
             <p>In Progress</p>
-            <input
-              checked
-              type="radio"
-              value="in_progress"
-              name="status"
-              class="radio_input"
+            <input {%if task.status == 'in_progress'%} checked{%endif%}
+            type="radio" value="in_progress" name="status" class="radio_input"
             />
           </div>
           <!-- Completed -->
@@ -109,12 +105,8 @@ task %}
               />
             </div>
             <p>Completed</p>
-            <input
-              type="radio"
-              value="completed"
-              name="status"
-              class="radio_input"
-            />
+            <input {%if task.status == 'completed'%} checked{%endif%}
+            type="radio" value="completed" name="status" class="radio_input" />
           </div>
           <!-- Won't Do -->
           <div class="status_container">
@@ -126,12 +118,8 @@ task %}
               />
             </div>
             <p>Won't do</p>
-            <input
-              type="radio"
-              value="wont_do"
-              name="status"
-              class="radio_input"
-            />
+            <input {%if task.status == 'wont_do'%} checked{%endif%} type="radio"
+            value="wont_do" name="status" class="radio_input" />
           </div>
           <!-- DECOY -->
           <div class="decoy">

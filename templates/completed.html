@@ -16,18 +16,20 @@
 
   <div class="tasks_cont">
     {%if completed_tasks%} {%for task in completed_tasks%}
-    <div class="task_in_progress">
+    <div class="task_completed">
       <div><img src="{{task.icon}}" alt="" class="task_icon" /></div>
       <p class="task_name">{{task.title}}</p>
       <div class="task_btns">
-        <a href="/completed/{{task.id}}"
+        <a href="/edit/{{task.id}}"
           ><img src="/static/edit-svgrepo-com.svg" alt=""
         /></a>
-        <img src="/static/delete-svgrepo-com.svg" alt="" />
+        <a href="/delete/{{task.id}}"
+          ><img src="/static/delete-svgrepo-com.svg" alt=""
+        /></a>
       </div>
     </div>
     {%endfor%} {%else%}
-    <p>No tasks completed</p>
+    <p class="empty_task">No tasks completed</p>
     {%endif%}
   </div>
 </div>
